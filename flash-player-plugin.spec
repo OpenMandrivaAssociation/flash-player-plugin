@@ -6,7 +6,7 @@
 
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.238
+Version:	11.2.202.243
 Release:	%mkrel 1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
@@ -141,9 +141,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch %ix86
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum1	2a23b92fa08c555f8520d7a619175dc5
+%define tmd5sum1	ab37b48ff2f682eced067f4a7ff86be1
 %define downurl2	http://linuxdownload.adobe.com/linux/i386/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum2	5022e2d969b88519f3a03c45ee778eac
+%define tmd5sum2	bdff081e49445d10ab87e8332be798b5
 %define downurl3	%nil
 %define tmd5sum3	%nil
 %define tarname		flash-plugin-%{version}-release.i386.rpm
@@ -153,9 +153,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch x86_64
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum1	bc361c57e83b9fbabd02a9392bf2839f
+%define tmd5sum1	7a04a9fd69de442ef6309e79eda910a3
 %define downurl2	http://linuxdownload.adobe.com/linux/x86_64/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum2	b1448a4c650b2198a3de6890ff2eaf78
+%define tmd5sum2	6950915dbd63c75de7a3eee8844d2ae3
 %define downurl3	%nil
 %define downurl3	%nil
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
@@ -392,4 +392,136 @@ sed -i 's,=personal,=network-and-connectivity,' %{_kde_services}/kcm_adobe_flash
 %ghost %{_kde_libdir}/kde4/kcm_adobe_flash_player.so
 %ghost %{_kde_services}/kcm_adobe_flash_player.desktop
 
+
+%changelog
+
+* Tue Oct 09 2012 anssi <anssi> 11.2.202.243-1.mga2
++ Revision: 303970
+- new version 11.2.202.243
+  o fixes CVE-2012-5248, CVE-2012-5249, CVE-2012-5250, CVE-2012-5251,
+    CVE-2012-5252, CVE-2012-5253, CVE-2012-5254, CVE-2012-5255, CVE-2012-5256,
+    CVE-2012-5257, CVE-2012-5258, CVE-2012-5259, CVE-2012-5260, CVE-2012-5261,
+    CVE-2012-5262, CVE-2012-5263, CVE-2012-5264, CVE-2012-5265, CVE-2012-5266,
+    CVE-2012-5267, CVE-2012-5268, CVE-2012-5269, CVE-2012-5270, CVE-2012-5271,
+    CVE-2012-5272
+    (bulletin: http://www.adobe.com/support/security/bulletins/apsb12-22.html )
+
+* Sun Aug 19 2012 anssi <anssi> 11.2.202.238-1.mga2.nonfree
++ Revision: 282318
+- new version 11.2.202.238
+  o fixes a critical security vulnerability (CVE-2012-1535,
+    http://www.adobe.com/support/security/bulletins/apsb12-18.html )
+
+* Sat Jun 09 2012 anssi <anssi> 11.2.202.236-1.mga2.nonfree
++ Revision: 258425
+- new version 11.2.202.236
+  o fixes critical security vulnerabilities (CVE-2012-2034, CVE-2012-2035,
+    CVE-2012-2036, CVE-2012-2037, CVE-2012-2038, CVE-2012-2039,
+    CVE-2012-2040,
+    http://www.adobe.com/support/security/bulletins/apsb12-14.html )
+- require libraries by file names instead of package names (suggested
+  by simplew, fixes #5824 (unable to use libcairo-xcb2))
+- 11.2.202.235
+  o fixes security issue CVE-2012-0779
+    (http://www.adobe.com/support/security/bulletins/apsb12-09.html)
+
+* Tue Apr 17 2012 anssi <anssi> 11.2.202.233-1.mga2.nonfree
++ Revision: 231210
+- new version 11.2.202.233
+  o bugfixes related to stability and performance
+- add some more direct requirements (they were also satisfied
+  indirectly via GTK+)
+
+* Thu Mar 29 2012 anssi <anssi> 11.2.202.228-1.mga2.nonfree
++ Revision: 227535
+- new version 11.2.202.228
+  o fixes a memory corruption vulnerability (CVE-2012-0773)
+
+* Tue Mar 06 2012 anssi <anssi> 11.1.102.63-1.mga2.nonfree
++ Revision: 220477
+- new version 11.1.102.63
+  o fixes CVE-2012-0768, CVE-2012-0769
+    ( http://www.adobe.com/support/security/bulletins/apsb12-05.html )
+
+* Fri Feb 17 2012 anssi <anssi> 11.1.102.62-1.mga2.nonfree
++ Revision: 210094
+- new version
+  o fixes CVE-2012-0751, CVE-2012-0752, CVE-2012-0753, CVE-2012-0754,
+    CVE-2012-0755, CVE-2012-0756, CVE-2012-0767
+
+* Fri Dec 16 2011 anssi <anssi> 11.1.102.55-2.mga2.nonfree
++ Revision: 182382
+- use proxy settings from /etc/urpmi/proxy.cfg (bug #3044)
+
+* Fri Nov 11 2011 anssi <anssi> 11.1.102.55-1.mga2.nonfree
++ Revision: 166427
+- new version 11.1.102.55
+  o fixes overflow and corruption vulnerabilities CVE-2011-2445,
+    CVE-2011-2450, CVE-2011-2451, CVE-2011-2452, CVE-2011-2453,
+    CVE-2011-2454, CVE-2011-2455, CVE-2011-2456, CVE-2011-2457,
+    CVE-2011-2459, CVE-2011-2460
+- normal download used again for x86_64, upstream issue regarding
+  missing files was fixed
+- prevent installation of -kde in %%pre if main package installation
+  was prevented by its %%pre
+
+* Thu Oct 06 2011 anssi <anssi> 11.0.1.152-1.mga2.nonfree
++ Revision: 152244
+- prefer unversioned archive on x86_64 (for now), fallbacking to the
+  versioned one, since the latter one misses some files
+
+  + doktor5000 <doktor5000>
+    - new version 11.0 final
+    - obsolete flash-player-plugin11
+    - remove fake x86_64 stuff, provide native x86_64 plugin
+    - remove Require for nspluginwrapper
+    - remove obsolete empty %%defattr and %%_localstatedir
+
+* Thu Sep 22 2011 anssi <anssi> 10.3.183.10-1.mga2.nonfree
++ Revision: 146583
+- new version 10.3.183.10
+  o fixes CVE-2011-2426, CVE-2011-2427, CVE-2011-2428, CVE-2011-2429
+    CVE-2011-2430, CVE-2011-2444
+- enforce permissions for extracted files (no effect with current
+  Flash Player version)
+- new version 10.3.183.7
+- clean up on download failure
+- provide a fake 64-bit version of the package which installs the
+  32-bit version of the Flash Player, to make the installation easier
+  on 64-bit installations that do not have 32-bit nonfree repository
+  set up by default; the package will be automatically upgraded to
+  a true 64-bit stable Flash Player when it becomes available
+- split out KDE KCM module into -kde subpackage (bug #1275)
+- download in %%pre instead of %%posttrans
+- unpack in %%post instead of %%posttrans
+- always re-enable GTK flash-player-properties in KDE as well
+- drop now unneeded calls to nspluginwrapper and gtk-icon-cache,
+  they are now handled by filetriggers
+- new version
+
+  + ahmad <ahmad>
+    - Change references of PLF to Mageia in download-flash-player-plugin
+
+* Fri Jul 08 2011 ahmad <ahmad> 10.3.181.34-1.mga2.nonfree
++ Revision: 120127
+- Update to 10.3.181.34
+
+* Wed Jun 15 2011 ahmad <ahmad> 10.3.181.26-1.mga2.nonfree
++ Revision: 107959
+- Update to 10.3.181.26
+
+* Thu Jun 09 2011 ahmad <ahmad> 10.3.181.22-1.mga2.nonfree
++ Revision: 102309
+- Update to 10.3.181.22
+
+* Fri May 13 2011 anssi <anssi> 10.3.181.14-1.mga1
++ Revision: 98265
+- new version
+- adapt script for added files
+- 32bit KDE now has a settings applet in KDE System Settings, other desktops
+  (including 64bit KDE) have a standalone configuration application
+
+* Wed Apr 20 2011 ennael <ennael> 10.2.159.1-1.mga1
++ Revision: 89107
+- imported package flash-player-plugin
 
