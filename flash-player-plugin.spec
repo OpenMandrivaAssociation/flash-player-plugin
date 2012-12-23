@@ -6,7 +6,7 @@
 
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.243
+Version:	11.2.202.258
 Release:	%mkrel 1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
@@ -141,9 +141,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch %ix86
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum1	ab37b48ff2f682eced067f4a7ff86be1
+%define tmd5sum1	c7ff5e1756116846fe5bf336f2302c31
 %define downurl2	http://linuxdownload.adobe.com/linux/i386/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum2	bdff081e49445d10ab87e8332be798b5
+%define tmd5sum2	c7ff5e1756116846fe5bf336f2302c31
 %define downurl3	%nil
 %define tmd5sum3	%nil
 %define tarname		flash-plugin-%{version}-release.i386.rpm
@@ -153,9 +153,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch x86_64
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum1	7a04a9fd69de442ef6309e79eda910a3
+%define tmd5sum1	b052a8c5fdcd8d05d2f958d08bd402c1
 %define downurl2	http://linuxdownload.adobe.com/linux/x86_64/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum2	6950915dbd63c75de7a3eee8844d2ae3
+%define tmd5sum2	b052a8c5fdcd8d05d2f958d08bd402c1
 %define downurl3	%nil
 %define downurl3	%nil
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
@@ -228,7 +228,7 @@ tar_extract() {
 %if %warn_on_missing_files
 			echo "Warning: \$FILE_SRC not found in the Flash Player archive," >&2
 			echo "         skipping installation of \$FILE_DST." >&2
-			echo "         Please file a bug report at https://bugs.mageia.org/ ." >&2
+			echo "         Please file a bug report at https://openmandriva.org/ ." >&2
 %endif
 			continue
 		fi
@@ -290,7 +290,7 @@ while ! checkmd5sum "%file"; do
 	eval URL="\$URL$URLNUM"
 	if [ -z "$URL" ]; then
 		echo "Error: Unable to download Flash Player. This is likely due to this package" >&2
-		echo "       being too old. Please file a bug report at https://bugs.mageia.org" >&2
+		echo "       being too old. Please file a bug report at https://openmandriva.org" >&2
 		echo "       so that the package gets updated. Thank you." >&2
 		echo "" >&2
 		echo "       In the meantime, you can download Flash Player manually from" >&2
