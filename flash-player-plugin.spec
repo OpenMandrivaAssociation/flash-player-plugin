@@ -6,8 +6,8 @@
 
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.258
-Release:	%mkrel 1
+Version:	11.2.202.261
+Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
 Group:		Networking/WWW
@@ -16,37 +16,37 @@ Requires(pre):	curl
 
 # helper for getting requires:
 # for i in $(objdump -p libflashplayer.so  | grep NEEDED | awk '{ print $2 }' | grep -v ld-linux); do echo "Requires: $i%{bitmark}"; done
-Requires: libatk-1.0.so.0%{bitmark}
-Requires: libcairo.so.2%{bitmark}
-Requires: libc.so.6%{bitmark}
-Requires: libdl.so.2%{bitmark}
-Requires: libfontconfig.so.1%{bitmark}
-Requires: libfreetype.so.6%{bitmark}
-Requires: libgdk_pixbuf-2.0.so.0%{bitmark}
-Requires: libgdk-x11-2.0.so.0%{bitmark}
-Requires: libglib-2.0.so.0%{bitmark}
-Requires: libgmodule-2.0.so.0%{bitmark}
-Requires: libgobject-2.0.so.0%{bitmark}
-Requires: libgthread-2.0.so.0%{bitmark}
-Requires: libgtk-x11-2.0.so.0%{bitmark}
-Requires: libm.so.6%{bitmark}
-Requires: libnspr4.so%{bitmark}
-Requires: libnss3.so%{bitmark}
-Requires: libnssutil3.so%{bitmark}
-Requires: libpango-1.0.so.0%{bitmark}
-Requires: libpangocairo-1.0.so.0%{bitmark}
-Requires: libpangoft2-1.0.so.0%{bitmark}
-Requires: libplc4.so%{bitmark}
-Requires: libplds4.so%{bitmark}
-Requires: libpthread.so.0%{bitmark}
-Requires: librt.so.1%{bitmark}
-Requires: libsmime3.so%{bitmark}
-Requires: libssl3.so%{bitmark}
-Requires: libX11.so.6%{bitmark}
-Requires: libXcursor.so.1%{bitmark}
-Requires: libXext.so.6%{bitmark}
-Requires: libXrender.so.1%{bitmark}
-Requires: libXt.so.6%{bitmark}
+Requires:	libatk-1.0.so.0%{bitmark}
+Requires:	libcairo.so.2%{bitmark}
+Requires:	libc.so.6%{bitmark}
+Requires:	libdl.so.2%{bitmark}
+Requires:	libfontconfig.so.1%{bitmark}
+Requires:	libfreetype.so.6%{bitmark}
+Requires:	libgdk_pixbuf-2.0.so.0%{bitmark}
+Requires:	libgdk-x11-2.0.so.0%{bitmark}
+Requires:	libglib-2.0.so.0%{bitmark}
+Requires:	libgmodule-2.0.so.0%{bitmark}
+Requires:	libgobject-2.0.so.0%{bitmark}
+Requires:	libgthread-2.0.so.0%{bitmark}
+Requires:	libgtk-x11-2.0.so.0%{bitmark}
+Requires:	libm.so.6%{bitmark}
+Requires:	libnspr4.so%{bitmark}
+Requires:	libnss3.so%{bitmark}
+Requires:	libnssutil3.so%{bitmark}
+Requires:	libpango-1.0.so.0%{bitmark}
+Requires:	libpangocairo-1.0.so.0%{bitmark}
+Requires:	libpangoft2-1.0.so.0%{bitmark}
+Requires:	libplc4.so%{bitmark}
+Requires:	libplds4.so%{bitmark}
+Requires:	libpthread.so.0%{bitmark}
+Requires:	librt.so.1%{bitmark}
+Requires:	libsmime3.so%{bitmark}
+Requires:	libssl3.so%{bitmark}
+Requires:	libX11.so.6%{bitmark}
+Requires:	libXcursor.so.1%{bitmark}
+Requires:	libXext.so.6%{bitmark}
+Requires:	libXrender.so.1%{bitmark}
+Requires:	libXt.so.6%{bitmark}
 # end of helper produced requires
 
 # required for audio, dlopened:
@@ -57,7 +57,9 @@ Requires:	libcurl.so.4%{bitmark}
 Suggests:	libvdpau.so.1%{bitmark}
 #
 Conflicts:	FlashPlayer < 9.0.115.0-5
-Conflicts:	flash-plugin FlashPlayer-plugin flashplayer-plugin
+Conflicts:	flash-plugin 
+Conflicts:	FlashPlayer-plugin
+Conflicts:	flashplayer-plugin
 # Conflict with free plugins to avoid user confusion as to which one is
 # actually used:
 Conflicts:	gnash-firefox-plugin
@@ -66,9 +68,8 @@ Conflicts:	lightspark-mozilla-plugin
 Conflicts:	libflashsupport < 0.20080000.1
 Obsoletes:	flash-player-plugin10.2 < 10.2.152
 Provides:	flash-player-plugin11
-Obsoletes:	flash-player-plugin11
+Obsoletes:	flash-player-plugin11 < %{version}
 BuildRequires:	kde4-macros
-BuildRoot:	%{_tmppath}/%{name}-root
 
 %description
 Adobe Flash Player plugin for browsers.
@@ -93,28 +94,28 @@ Requires:	%{name} = %{version}-%{release}
 Requires(post):	%{name} = %{version}-%{release}
 # helper for getting requires:
 # for i in $(objdump -p kcm_adobe_flash_player.so  | grep NEEDED | awk '{ print $2 }' | grep -v ld-linux); do echo "Requires: $i%{bitmark}"; done
-Requires: libc.so.6%{bitmark}
-Requires: libICE.so.6%{bitmark}
-Requires: libkdecore.so.5%{bitmark}
-Requires: libkdeui.so.5%{bitmark}
-Requires: libkutils.so.4%{bitmark}
-Requires: libm.so.6%{bitmark}
-Requires: libpthread.so.0%{bitmark}
-Requires: libQtCore.so.4%{bitmark}
-Requires: libQtDBus.so.4%{bitmark}
-Requires: libQtGui.so.4%{bitmark}
-Requires: libQtSvg.so.4%{bitmark}
-Requires: libSM.so.6%{bitmark}
-Requires: libX11.so.6%{bitmark}
-Requires: libXau.so.6%{bitmark}
-Requires: libXdmcp.so.6%{bitmark}
-Requires: libXext.so.6%{bitmark}
-Requires: libXft.so.2%{bitmark}
-Requires: libXpm.so.4%{bitmark}
+Requires:	libc.so.6%{bitmark}
+Requires:	libICE.so.6%{bitmark}
+Requires:	libkdecore.so.5%{bitmark}
+Requires:	libkdeui.so.5%{bitmark}
+Requires:	libkutils.so.4%{bitmark}
+Requires:	libm.so.6%{bitmark}
+Requires:	libpthread.so.0%{bitmark}
+Requires:	libQtCore.so.4%{bitmark}
+Requires:	libQtDBus.so.4%{bitmark}
+Requires:	libQtGui.so.4%{bitmark}
+Requires:	libQtSvg.so.4%{bitmark}
+Requires:	libSM.so.6%{bitmark}
+Requires:	libX11.so.6%{bitmark}
+Requires:	libXau.so.6%{bitmark}
+Requires:	libXdmcp.so.6%{bitmark}
+Requires:	libXext.so.6%{bitmark}
+Requires:	libXft.so.2%{bitmark}
+Requires:	libXpm.so.4%{bitmark}
 # end of helper produced requires
 Conflicts:	flash-player-plugin < 10.3.183.5
 Provides:	flash-player-plugin11-kde
-Obsoletes:	flash-player-plugin11-kde
+Obsoletes:	flash-player-plugin11-kde < %{version}
 
 %description kde
 KDE settings module for Adobe Flash Player.
@@ -141,9 +142,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch %ix86
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum1	c7ff5e1756116846fe5bf336f2302c31
+%define tmd5sum1	9e78a36f26a071b9d92581e5245a741c
 %define downurl2	http://linuxdownload.adobe.com/linux/i386/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum2	c7ff5e1756116846fe5bf336f2302c31
+%define tmd5sum2	9e78a36f26a071b9d92581e5245a741c
 %define downurl3	%nil
 %define tmd5sum3	%nil
 %define tarname		flash-plugin-%{version}-release.i386.rpm
@@ -153,9 +154,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch x86_64
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum1	b052a8c5fdcd8d05d2f958d08bd402c1
+%define tmd5sum1	0a01991d6236908d30e771ce6daf4b88
 %define downurl2	http://linuxdownload.adobe.com/linux/x86_64/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum2	b052a8c5fdcd8d05d2f958d08bd402c1
+%define tmd5sum2	0a01991d6236908d30e771ce6daf4b88
 %define downurl3	%nil
 %define downurl3	%nil
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
@@ -166,7 +167,6 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define file %{_localstatedir}/lib/%{name}/%{tarname}
 
 %install
-rm -rf %{buildroot}
 
 install -d -m755 %{buildroot}%{_localstatedir}/lib/%{name}
 install -d -m755 %{buildroot}%{_libdir}/mozilla/plugins
@@ -239,9 +239,6 @@ tar_extract() {
 	rm -rf "\$extractdir"
 }
 EOF
-
-%clean
-rm -rf %{buildroot}
 
 %pre
 checkmd5sum() {
@@ -371,7 +368,6 @@ tar_extract
 sed -i 's,=personal,=network-and-connectivity,' %{_kde_services}/kcm_adobe_flash_player.desktop 2>/dev/null || :
 
 %files
-
 %dir %{_localstatedir}/lib/%{name}
 %ghost %{_localstatedir}/lib/%{name}/%{tarname}
 %dir %{_datadir}/%{name}
@@ -388,7 +384,6 @@ sed -i 's,=personal,=network-and-connectivity,' %{_kde_services}/kcm_adobe_flash
 %ghost %{_iconsdir}/hicolor/*/apps/flash-player-properties.png
 
 %files kde
-%defattr(-,root,root)
 %ghost %{_kde_libdir}/kde4/kcm_adobe_flash_player.so
 %ghost %{_kde_services}/kcm_adobe_flash_player.desktop
 
