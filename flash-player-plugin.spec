@@ -6,7 +6,7 @@
 
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.261
+Version:	11.2.202.270
 Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
