@@ -1,9 +1,3 @@
-%ifarch x86_64
-%define bitmark	()(64bit)
-%else
-%define bitmark %nil
-%endif
-
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
 Version:	11.2.202.270
@@ -11,50 +5,50 @@ Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
 Group:		Networking/WWW
-ExclusiveArch:	%ix86 x86_64
+ExclusiveArch:	%{ix86} x86_64
 Requires(pre):	curl
 
 # helper for getting requires:
-# for i in $(objdump -p libflashplayer.so  | grep NEEDED | awk '{ print $2 }' | grep -v ld-linux); do echo "Requires: $i%{bitmark}"; done
-Requires:	libatk-1.0.so.0%{bitmark}
-Requires:	libcairo.so.2%{bitmark}
-Requires:	libc.so.6%{bitmark}
-Requires:	libdl.so.2%{bitmark}
-Requires:	libfontconfig.so.1%{bitmark}
-Requires:	libfreetype.so.6%{bitmark}
-Requires:	libgdk_pixbuf-2.0.so.0%{bitmark}
-Requires:	libgdk-x11-2.0.so.0%{bitmark}
-Requires:	libglib-2.0.so.0%{bitmark}
-Requires:	libgmodule-2.0.so.0%{bitmark}
-Requires:	libgobject-2.0.so.0%{bitmark}
-Requires:	libgthread-2.0.so.0%{bitmark}
-Requires:	libgtk-x11-2.0.so.0%{bitmark}
-Requires:	libm.so.6%{bitmark}
-Requires:	libnspr4.so%{bitmark}
-Requires:	libnss3.so%{bitmark}
-Requires:	libnssutil3.so%{bitmark}
-Requires:	libpango-1.0.so.0%{bitmark}
-Requires:	libpangocairo-1.0.so.0%{bitmark}
-Requires:	libpangoft2-1.0.so.0%{bitmark}
-Requires:	libplc4.so%{bitmark}
-Requires:	libplds4.so%{bitmark}
-Requires:	libpthread.so.0%{bitmark}
-Requires:	librt.so.1%{bitmark}
-Requires:	libsmime3.so%{bitmark}
-Requires:	libssl3.so%{bitmark}
-Requires:	libX11.so.6%{bitmark}
-Requires:	libXcursor.so.1%{bitmark}
-Requires:	libXext.so.6%{bitmark}
-Requires:	libXrender.so.1%{bitmark}
-Requires:	libXt.so.6%{bitmark}
+# for i in $(objdump -p libflashplayer.so  | grep NEEDED | awk '{ print $2 }' | grep -v ld-linux); do echo "Requires: $i%{_arch_tag_suffix}"; done
+Requires:	libatk-1.0.so.0%{_arch_tag_suffix}
+Requires:	libcairo.so.2%{_arch_tag_suffix}
+Requires:	libc.so.6%{_arch_tag_suffix}
+Requires:	libdl.so.2%{_arch_tag_suffix}
+Requires:	libfontconfig.so.1%{_arch_tag_suffix}
+Requires:	libfreetype.so.6%{_arch_tag_suffix}
+Requires:	libgdk_pixbuf-2.0.so.0%{_arch_tag_suffix}
+Requires:	libgdk-x11-2.0.so.0%{_arch_tag_suffix}
+Requires:	libglib-2.0.so.0%{_arch_tag_suffix}
+Requires:	libgmodule-2.0.so.0%{_arch_tag_suffix}
+Requires:	libgobject-2.0.so.0%{_arch_tag_suffix}
+Requires:	libgthread-2.0.so.0%{_arch_tag_suffix}
+Requires:	libgtk-x11-2.0.so.0%{_arch_tag_suffix}
+Requires:	libm.so.6%{_arch_tag_suffix}
+Requires:	libnspr4.so%{_arch_tag_suffix}
+Requires:	libnss3.so%{_arch_tag_suffix}
+Requires:	libnssutil3.so%{_arch_tag_suffix}
+Requires:	libpango-1.0.so.0%{_arch_tag_suffix}
+Requires:	libpangocairo-1.0.so.0%{_arch_tag_suffix}
+Requires:	libpangoft2-1.0.so.0%{_arch_tag_suffix}
+Requires:	libplc4.so%{_arch_tag_suffix}
+Requires:	libplds4.so%{_arch_tag_suffix}
+Requires:	libpthread.so.0%{_arch_tag_suffix}
+Requires:	librt.so.1%{_arch_tag_suffix}
+Requires:	libsmime3.so%{_arch_tag_suffix}
+Requires:	libssl3.so%{_arch_tag_suffix}
+Requires:	libX11.so.6%{_arch_tag_suffix}
+Requires:	libXcursor.so.1%{_arch_tag_suffix}
+Requires:	libXext.so.6%{_arch_tag_suffix}
+Requires:	libXrender.so.1%{_arch_tag_suffix}
+Requires:	libXt.so.6%{_arch_tag_suffix}
 # end of helper produced requires
 
 # required for audio, dlopened:
-Requires:	libasound.so.2%{bitmark}
+Requires:	libasound.so.2%{_arch_tag_suffix}
 # dlopened:
-Requires:	libcurl.so.4%{bitmark}
+Requires:	libcurl.so.4%{_arch_tag_suffix}
 # dlopened, for video acceleration:
-Suggests:	libvdpau.so.1%{bitmark}
+Suggests:	libvdpau.so.1%{_arch_tag_suffix}
 #
 Conflicts:	FlashPlayer < 9.0.115.0-5
 Conflicts:	flash-plugin 
@@ -93,25 +87,25 @@ Group:		Networking/WWW
 Requires:	%{name} = %{version}-%{release}
 Requires(post):	%{name} = %{version}-%{release}
 # helper for getting requires:
-# for i in $(objdump -p kcm_adobe_flash_player.so  | grep NEEDED | awk '{ print $2 }' | grep -v ld-linux); do echo "Requires: $i%{bitmark}"; done
-Requires:	libc.so.6%{bitmark}
-Requires:	libICE.so.6%{bitmark}
-Requires:	libkdecore.so.5%{bitmark}
-Requires:	libkdeui.so.5%{bitmark}
-Requires:	libkutils.so.4%{bitmark}
-Requires:	libm.so.6%{bitmark}
-Requires:	libpthread.so.0%{bitmark}
-Requires:	libQtCore.so.4%{bitmark}
-Requires:	libQtDBus.so.4%{bitmark}
-Requires:	libQtGui.so.4%{bitmark}
-Requires:	libQtSvg.so.4%{bitmark}
-Requires:	libSM.so.6%{bitmark}
-Requires:	libX11.so.6%{bitmark}
-Requires:	libXau.so.6%{bitmark}
-Requires:	libXdmcp.so.6%{bitmark}
-Requires:	libXext.so.6%{bitmark}
-Requires:	libXft.so.2%{bitmark}
-Requires:	libXpm.so.4%{bitmark}
+# for i in $(objdump -p kcm_adobe_flash_player.so  | grep NEEDED | awk '{ print $2 }' | grep -v ld-linux); do echo "Requires: $i%{_arch_tag_suffix}"; done
+Requires:	libc.so.6%{_arch_tag_suffix}
+Requires:	libICE.so.6%{_arch_tag_suffix}
+Requires:	libkdecore.so.5%{_arch_tag_suffix}
+Requires:	libkdeui.so.5%{_arch_tag_suffix}
+Requires:	libkutils.so.4%{_arch_tag_suffix}
+Requires:	libm.so.6%{_arch_tag_suffix}
+Requires:	libpthread.so.0%{_arch_tag_suffix}
+Requires:	libQtCore.so.4%{_arch_tag_suffix}
+Requires:	libQtDBus.so.4%{_arch_tag_suffix}
+Requires:	libQtGui.so.4%{_arch_tag_suffix}
+Requires:	libQtSvg.so.4%{_arch_tag_suffix}
+Requires:	libSM.so.6%{_arch_tag_suffix}
+Requires:	libX11.so.6%{_arch_tag_suffix}
+Requires:	libXau.so.6%{_arch_tag_suffix}
+Requires:	libXdmcp.so.6%{_arch_tag_suffix}
+Requires:	libXext.so.6%{_arch_tag_suffix}
+Requires:	libXft.so.2%{_arch_tag_suffix}
+Requires:	libXpm.so.4%{_arch_tag_suffix}
 # end of helper produced requires
 Conflicts:	flash-player-plugin < 10.3.183.5
 Provides:	flash-player-plugin11-kde
