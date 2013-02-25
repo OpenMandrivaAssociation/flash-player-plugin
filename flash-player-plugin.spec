@@ -287,7 +287,7 @@ while ! checkmd5sum "%file"; do
 	eval URL="\$URL$URLNUM"
 	if [ -z "$URL" ]; then
 		echo "Error: Unable to download Flash Player. This is likely due to this package" >&2
-		echo "       being too old. Please file a bug report at https://openmandriva.org" >&2
+		echo "       being too old. Please file a bug report at %{bugurl}" >&2
 		echo "       so that the package gets updated. Thank you." >&2
 		echo "" >&2
 		echo "       In the meantime, you can download Flash Player manually from" >&2
