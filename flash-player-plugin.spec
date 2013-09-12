@@ -1,7 +1,7 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
 Version:	11.2.202.310
-Release:	1
+Release:	2
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
 Group:		Networking/WWW
@@ -344,7 +344,7 @@ echo "Adobe Flash Player installation successful."
 # can prevent installation of it, but urpmi/rpm will try to install -kde
 # regardless. FIXME.
 # For now, workaround it by preventing -kde installation as well:
-[ -e %{_datadir}/%{name}/functions ] && [ -e %{_localstatedir}/lib/%{name}/%{tarname} 
+[ -e %{_datadir}/%{name}/functions ] && [ -e %{_localstatedir}/lib/%{name}/%{tarname} ]
 
 %post kde
 FILE1_SRC="usr/%{_lib}/kde4/kcm_adobe_flash_player.so"
