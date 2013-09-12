@@ -1,6 +1,6 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.297
+Version:	11.2.202.310
 Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
@@ -136,9 +136,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch %ix86
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum1	846ed776b0fcc406b3c7395c01d926bb
+%define tmd5sum1	4519311a1d61c9cc4924a3143918f13b
 %define downurl2	http://linuxdownload.adobe.com/linux/i386/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum2	846ed776b0fcc406b3c7395c01d926bb
+%define tmd5sum2	4519311a1d61c9cc4924a3143918f13b
 %define downurl3	%nil
 %define tmd5sum3	%nil
 %define tarname		flash-plugin-%{version}-release.i386.rpm
@@ -148,9 +148,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch x86_64
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum1	1b84676d1589d73997a99ac6a2d9c2fe
+%define tmd5sum1	06305b545de4023ac8c0da2f23380696
 %define downurl2	http://linuxdownload.adobe.com/linux/x86_64/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum2	1b84676d1589d73997a99ac6a2d9c2fe
+%define tmd5sum2	06305b545de4023ac8c0da2f23380696
 %define downurl3	%nil
 %define downurl3	%nil
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
@@ -344,7 +344,7 @@ echo "Adobe Flash Player installation successful."
 # can prevent installation of it, but urpmi/rpm will try to install -kde
 # regardless. FIXME.
 # For now, workaround it by preventing -kde installation as well:
-[ -e %{_datadir}/%{name}/functions ]
+[ -e %{_datadir}/%{name}/functions ] && [ -e %{_localstatedir}/lib/%{name}/%{tarname} 
 
 %post kde
 FILE1_SRC="usr/%{_lib}/kde4/kcm_adobe_flash_player.so"
