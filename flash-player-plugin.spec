@@ -1,7 +1,7 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.406
-Release:	2
+Version:	11.2.202.418
+Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
 Group:		Networking/WWW
@@ -136,9 +136,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch %ix86
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum1	883631989e54e204a069801f9a750749
+%define tmd5sum1	10a91c6b3984c5e3406c667d629115da
 %define downurl2	http://linuxdownload.adobe.com/linux/i386/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum2	4b4d0bde600c041ab37b4deaeea7b6b3
+%define tmd5sum2	10a91c6b3984c5e3406c667d629115da
 %define downurl3	%nil
 %define tmd5sum3	%nil
 %define tarname		flash-plugin-%{version}-release.i386.rpm
@@ -148,9 +148,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch x86_64
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum1	be59fd5b1076cb8ee5ec480b0a38aa08
+%define tmd5sum1	eb8c2da49f4e6e7e636d41a416a1d50a
 %define downurl2	http://linuxdownload.adobe.com/linux/x86_64/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum2	c7f469730fe3f3cc0c374c72e096bf02
+%define tmd5sum2	eb8c2da49f4e6e7e636d41a416a1d50a
 %define downurl3	%nil
 %define downurl3	%nil
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
