@@ -1,6 +1,6 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.438
+Version:	11.2.202.440
 Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
@@ -136,11 +136,16 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch %ix86
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum1	db99a53ef2a2182140c4578275caf23e
-%define downurl2	http://linuxdownload.adobe.com/linux/i386/flash-plugin-%{version}-release.i386.rpm
-%define tmd5sum2	db99a53ef2a2182140c4578275caf23e
-%define downurl3	%nil
+# (Anssi) this was up faster (i.e. at the time of writing it was up but downurl1 was not), but does not stay up very long, same md5 as url1:
+%define downurl2	http://fpdownload.macromedia.com/get/flashplayer/current/licensing/linux/flash-plugin-%{version}-release.i386.rpm
+# can be temporarily disabled by %nilling if not yet available at the time of updating:
+%define downurl3	http://linuxdownload.adobe.com/linux/i386/flash-plugin-%{version}-release.i386.rpm
+%define downurl4	%nil
+
+%define tmd5sum1	36175e51c1bc547309436d02a48e92c3
+%define tmd5sum2	987e52c9cf102449ee938febf01cadb6
 %define tmd5sum3	%nil
+
 %define tarname		flash-plugin-%{version}-release.i386.rpm
 
 %define warn_on_missing_files 1
@@ -148,11 +153,14 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 
 %ifarch x86_64
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum1	663550c518e449e20722a0944eaf7de3
-%define downurl2	http://linuxdownload.adobe.com/linux/x86_64/flash-plugin-%{version}-release.x86_64.rpm
-%define tmd5sum2	663550c518e449e20722a0944eaf7de3
-%define downurl3	%nil
-%define downurl3	%nil
+%define downurl2	http://fpdownload.macromedia.com/get/flashplayer/current/licensing/linux/flash-plugin-%{version}-release.x86_64.rpm
+%define downurl3	http://linuxdownload.adobe.com/linux/x86_64/flash-plugin-%{version}-release.x86_64.rpm
+%define downurl4	%nil
+
+%define tmd5sum1	ac463802bcb18d2fb3e0eea9c2542679
+%define tmd5sum2	d6056f8103b368d460446dcaacdbacc7
+%define tmd5sum3	%nil
+
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
 
 %define warn_on_missing_files 1
