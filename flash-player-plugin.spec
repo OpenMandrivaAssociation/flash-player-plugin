@@ -1,6 +1,6 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.442
+Version:	11.2.202.451
 Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
@@ -128,23 +128,24 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %setup -c -T
 
 # Always prefer versioned archives instead of unversioned ones, so that when
-# Adobe updates the Flash Player, the old md5sum continues to work until
+# Adobe updates the Flash Player, the old sha256sum continues to work until
 # this package is updated for the new version.
 
 # The linuxdownload.adobe.com rpm usually stays up longer, but fpdownload.macromedia.com is faster.
-# Their md5sums usually differ.
+# Their sha256sums usually differ.
 
 %ifarch %ix86
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.i386.rpm
-# (Anssi) this was up faster (i.e. at the time of writing it was up but downurl1 was not), but does not stay up very long, same md5 as url1:
+# (Anssi) this was up faster (i.e. at the time of writing it was up but downurl1 was not), but does not stay up very long, same sha256 as url1:
 %define downurl2	http://fpdownload.macromedia.com/get/flashplayer/current/licensing/linux/flash-plugin-%{version}-release.i386.rpm
 # can be temporarily disabled by %nilling if not yet available at the time of updating:
 %define downurl3	http://linuxdownload.adobe.com/linux/i386/flash-plugin-%{version}-release.i386.rpm
 %define downurl4	%nil
 
-%define tmd5sum1	0580e3e4d07d39b7982e7026f1aba74d
-%define tmd5sum2	%nil
-%define tmd5sum3	%nil
+# sha256sum:filesize
+%define tsha256sum1	d7d0e87f4b41694833a200092b946fa1efc00524353bd0f29f08cfaeda5aac5e:6913727
+%define tsha256sum2	%nil
+%define tsha256sum3	%nil
 
 %define tarname		flash-plugin-%{version}-release.i386.rpm
 
@@ -157,9 +158,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl3	http://linuxdownload.adobe.com/linux/x86_64/flash-plugin-%{version}-release.x86_64.rpm
 %define downurl4	%nil
 
-%define tmd5sum1	d3ff0ba992207808cf42f152383d44b2
-%define tmd5sum2	%nil
-%define tmd5sum3	%nil
+%define tsha256sum1	ae4b02429fb086c5a75bdc670a5102f658a01aa63769c0d061696e54ecc323f2:7226139
+%define tsha256sum2	%nil
+%define dsha256sum3	%nil
 
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
 
@@ -242,16 +243,18 @@ tar_extract() {
 EOF
 
 %pre
-checkmd5sum() {
+checksha256sum() {
 	[ -e "$1" ] || return 1
-	FILEMD5="$(md5sum $1 | cut -d" " -f1)"
-	[ -n "$FILEMD5" ] || return 1
-	MD5NUM=1
-	eval MD5SUM="\$MD5SUM$MD5NUM"
-	while [ "$MD5SUM" ]; do
-		[ "$MD5SUM" = "$FILEMD5" ] && return 0
-		MD5NUM=$((MD5NUM+1))
-		eval MD5SUM="\$MD5SUM$MD5NUM"
+	FILESHA256="$(sha256sum $1 | cut -d" " -f1)"
+	FILESIZE="$(stat -c%%s "$1")"
+	[ -n "$FILESHA256" ] || return 1
+	[ -n "$FILESIZE" ] || return 1
+	SHA256NUM=1
+	eval SHA256SUM="\$SHA256SUM$SHA256NUM"
+	while [ "$SHA256SUM" ]; do
+		[ "${SHA256SUM%:*}" = "$FILESHA256" ] && [ "${SHA256SUM#*:}" = "$FILESIZE" ] && return 0
+		SHA256NUM=$((SHA256NUM+1))
+		eval SHA256SUM="\$SHA256SUM$SHA256NUM"
 	done
 	return 1
 }
@@ -269,10 +272,10 @@ get_proxy_from_urpmi() {
 	fi
 }
 
-MD5SUM1="%{tmd5sum1}"
-MD5SUM2="%{tmd5sum2}"
-MD5SUM3="%{tmd5sum3}"
-MD5SUM4=
+SHA256SUM1="%{tsha256sum1}"
+SHA256SUM2="%{tsha256sum2}"
+SHA256SUM3="%{tsha256sum3}"
+SHA256SUM4=
 URL1="%{downurl1}"
 URL2="%{downurl2}"
 URL3="%{downurl3}"
@@ -284,7 +287,7 @@ install -d -m 0755 %{_localstatedir}/lib/%{name}
 
 echo "Note that by downloading the Adobe Flash Player you indicate your acceptance of"
 echo "the EULA, available at http://www.adobe.com/products/eulas/players/flash/"
-while ! checkmd5sum "%file"; do
+while ! checksha256sum "%file"; do
 	eval URL="\$URL$URLNUM"
 	if [ -z "$URL" ]; then
 		echo "Error: Unable to download Flash Player. This is likely due to this package" >&2
