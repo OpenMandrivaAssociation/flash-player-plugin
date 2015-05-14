@@ -1,6 +1,6 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.457
+Version:	11.2.202.460
 Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
@@ -143,8 +143,8 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 # sha256sum:filesize
-%define tsha256sum1	f0112d66387c2861eda02d40d643ee6f10caa21192a4899b6b2bce207bec7ce4:6915251
-%define tsha256sum2	f6a4cb3605f08402042490040dad498cfb25992d747f4f59acb106dbeff56ed1:6915411
+%define tsha256sum1	b5d158e370cf31a2567a1e32dec8f399a9f61abc7ca64cb04ae718c76face3df:6915894
+%define tsha256sum2	%nil
 %define tsha256sum3	%nil
 
 %define tarname		flash-plugin-%{version}-release.i386.rpm
@@ -159,8 +159,8 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 
-%define tsha256sum1	ee42025a31c10feae7c1640a36a836c4f4546e5ea56fdcf14047d6750118dabf:7226847
-%define tsha256sum2	e835c9ee75db3cb24076536fb9fe619d27d6404e1076fe77e7d4388f68de4e5e:7227007
+%define tsha256sum1	42cf570fa045d4d5e48f7b5a1cb8a2ded8e789b297b1e9c136d50f9e1303cc70:7226814
+%define tsha256sum2	%nil
 %define dsha256sum3	%nil
 
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
