@@ -1,6 +1,6 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.460
+Version:	11.2.202.466
 Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
@@ -159,7 +159,7 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 
-%define tsha256sum1	42cf570fa045d4d5e48f7b5a1cb8a2ded8e789b297b1e9c136d50f9e1303cc70:7226814
+%define tsha256sum1	e90fd5441e670649f3ce210bda226eca346d01b561c5b59080bd8b60d1699cbc:6916635
 %define tsha256sum2	%nil
 %define dsha256sum3	%nil
 
