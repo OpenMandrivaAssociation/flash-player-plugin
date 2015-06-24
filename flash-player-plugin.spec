@@ -1,7 +1,7 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.466
-Release:	2
+Version:	11.2.202.468
+Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
 Group:		Networking/WWW
@@ -143,9 +143,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 # sha256sum:filesize
-%define tsha256sum1	e90fd5441e670649f3ce210bda226eca346d01b561c5b59080bd8b60d1699cbc:6916635
-%define tsha256sum2	%nil
-%define tsha256sum3	%nil
+%define tsha256sum1	3b6cd64443fd426d629dcbf1a08a6a5450d722e47713d6ff9f23886d2cf9966d:6916590
+%define tsha256sum2	3b6cd64443fd426d629dcbf1a08a6a5450d722e47713d6ff9f23886d2cf9966d:6916590
+%define tsha256sum3	122c15b813214b8478dced06051c17c2fba687f3730cdeb54fd96acadd04cf0e:6916750
 
 %define tarname		flash-plugin-%{version}-release.i386.rpm
 
@@ -159,9 +159,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 
-%define tsha256sum1	b47d93ea28a67b843b87e1527379e2e5bc8d077a49a365cd7df7eee3675ef84d:7227400
-%define tsha256sum2	%nil
-%define dsha256sum3	%nil
+%define tsha256sum1	796e1e8db4438b7923762e02783e654d9af1d10d86e3c325e9f3eccf01765797:7227337
+%define tsha256sum2	796e1e8db4438b7923762e02783e654d9af1d10d86e3c325e9f3eccf01765797:7227337
+%define tsha256sum3	dd3a80b180d94434b9fcea3005ace0abfb48f965d94f0a03bc58d7480c0f1fec:7227497
 
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
 
