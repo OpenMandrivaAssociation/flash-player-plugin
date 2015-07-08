@@ -143,9 +143,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 # sha256sum:filesize
-%define tsha256sum1	3b6cd64443fd426d629dcbf1a08a6a5450d722e47713d6ff9f23886d2cf9966d:6916590
-%define tsha256sum2	3b6cd64443fd426d629dcbf1a08a6a5450d722e47713d6ff9f23886d2cf9966d:6916590
-%define tsha256sum3	122c15b813214b8478dced06051c17c2fba687f3730cdeb54fd96acadd04cf0e:6916750
+%define tsha256sum1	a4b229470e62fedcd7edbf5cdf2bb90f8f43f1a6fa5286240e35433d7c73a125:6918554
+%define tsha256sum2	a4b229470e62fedcd7edbf5cdf2bb90f8f43f1a6fa5286240e35433d7c73a125:6918554
+%define tsha256sum3	80b12ea7c73256f404cb4fffd6cc6b4667de3f4b0a5e3692d42b84a69fa5c218:6918714
 
 %define tarname		flash-plugin-%{version}-release.i386.rpm
 
@@ -159,9 +159,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 
-%define tsha256sum1	796e1e8db4438b7923762e02783e654d9af1d10d86e3c325e9f3eccf01765797:7227337
-%define tsha256sum2	796e1e8db4438b7923762e02783e654d9af1d10d86e3c325e9f3eccf01765797:7227337
-%define tsha256sum3	dd3a80b180d94434b9fcea3005ace0abfb48f965d94f0a03bc58d7480c0f1fec:7227497
+%define tsha256sum1	4d2bf18b7330fce35fd915ac1022f44a59efe640a9b4840083cb62c026bdb7ce:7228663
+%define tsha256sum2	4d2bf18b7330fce35fd915ac1022f44a59efe640a9b4840083cb62c026bdb7ce:7228663
+%define tsha256sum3	f8808ea5de83e245d74ee70932108d60bbd453a23b41857cbcf28a7dd5a9240b:7228823
 
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
 
