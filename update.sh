@@ -9,6 +9,12 @@ do
    url=${myarray[1]}
    no=${myarray[0]}
 
+   occ=1
+   echo $url | grep x86_64
+   if [ $? -eq 0 ]; then
+      occ=2
+   fi
+
    fin=`echo $url | sed -e "s/%{version}/$version/g"`
 
    file=`basename $fin`
@@ -21,6 +27,10 @@ do
    echo $fsize
    #define tsha256sum1     a4b229470e62fedcd7edbf5cdf2bb90f8f43f1a6fa5286240e35433d7c73a125:6918554
 
-   sed -i "s/ tsha256sum${no}.*/ tsha256sum${no}\t$sum:$fsize/" flash-player-plugin.spec
+   if [ $occ -eq 1]; then
+     sed -i "s/ tsha256sum${no}.*/ tsha256sum${no}\t$sum:$fsize/" flash-player-plugin.spec
+   else
+     sed -i "0,/ tsha256sum${no}.*/! s/ tsha256sum${no}.*/ tsha256sum${no}\t$sum:$fsize/" flash-player-plugin.spec 
+   fi
    rm -f $file
 done

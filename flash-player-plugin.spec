@@ -2,7 +2,7 @@ Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
 Version:	11.2.202.491
 # just update the version, run update.sh and commit
-Release:	1
+Release:	2
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
 Group:		Networking/WWW
@@ -144,8 +144,8 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 # sha256sum:filesize
-%define tsha256sum1	3675e1d4bb14947dfff643b4cda67f924588e0d4121d3dec465b846d5e827466:7240110
-%define tsha256sum2	3675e1d4bb14947dfff643b4cda67f924588e0d4121d3dec465b846d5e827466:7240110
+%define tsha256sum1	94023ab044f9c25eb0ede082579836471fe28ec63aec9683de92e5017abc0179:6927273
+%define tsha256sum2	94023ab044f9c25eb0ede082579836471fe28ec63aec9683de92e5017abc0179:6927273
 %define tsha256sum3	:
 
 %define tarname		flash-plugin-%{version}-release.i386.rpm
