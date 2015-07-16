@@ -5,6 +5,7 @@ Version:	11.2.202.491
 Release:	2
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
+Source100:	%{name}.rpmlintrc
 Group:		Networking/WWW
 ExclusiveArch:	%{ix86} x86_64
 Requires(pre):	curl
