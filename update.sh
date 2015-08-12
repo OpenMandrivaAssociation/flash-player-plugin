@@ -27,7 +27,7 @@ do
    echo $fsize
    #define tsha256sum1     a4b229470e62fedcd7edbf5cdf2bb90f8f43f1a6fa5286240e35433d7c73a125:6918554
 
-   if [ $occ -eq 1]; then
+   if [ $occ -eq 1 ]; then
      sed -i "s/ tsha256sum${no}.*/ tsha256sum${no}\t$sum:$fsize/" flash-player-plugin.spec
    else
      sed -i "0,/ tsha256sum${no}.*/! s/ tsha256sum${no}.*/ tsha256sum${no}\t$sum:$fsize/" flash-player-plugin.spec 
