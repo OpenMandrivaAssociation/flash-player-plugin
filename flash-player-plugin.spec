@@ -1,8 +1,8 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.508
+Version:	11.2.202.521
 # just update the version, run update.sh and commit
-Release:	2
+Release:	1
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
 Source100:	%{name}.rpmlintrc
@@ -145,9 +145,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 # sha256sum:filesize
-%define tsha256sum1	86e2f0499118c2f30966c5832d9cafe77e912108b86d89d24081d0ff8d03bd16:6930758
-%define tsha256sum2	86e2f0499118c2f30966c5832d9cafe77e912108b86d89d24081d0ff8d03bd16:6930758
-%define tsha256sum3	5a648fb0ee89735623b4ad623dd1ffe2563386c46fb0ea8b647484a6597e14e4:6930918
+%define tsha256sum1	2292b01e34e170e91c342a719979523e2d0aa7f7a0fef717812c6bf3a4f9687d:6931870
+%define tsha256sum2	2292b01e34e170e91c342a719979523e2d0aa7f7a0fef717812c6bf3a4f9687d:6931870
+%define tsha256sum3	7e34d89608411a3d14cb8fdae06ad93ca54570e8e8b5fbe2fae8465cf2efdac4:6932030
 
 %define tarname		flash-plugin-%{version}-release.i386.rpm
 
@@ -161,9 +161,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 
-%define tsha256sum1	62db3c984e48810a6b53552088b5b6d6673c6a98b5aa4d2277909f293beeab2e:7248161
-%define tsha256sum2	62db3c984e48810a6b53552088b5b6d6673c6a98b5aa4d2277909f293beeab2e:7248161
-%define tsha256sum3	4a2d32ef7343bf09bbb51ef166a6eb8df7e0cab0fe993d65aea5997b7fd334b7:7248321
+%define tsha256sum1	cc0ed027613fa758d2fd86266ba45c3eaa0c06040efd5bd21fe6e8ff6240d6ab:7246524
+%define tsha256sum2	cc0ed027613fa758d2fd86266ba45c3eaa0c06040efd5bd21fe6e8ff6240d6ab:7246524
+%define tsha256sum3	f6072af4049f6222a3ecf41a1a35739f448153f10d0587216dd1000e72a23f4f:7246684
 
 %define tarname		flash-plugin-%{version}-release.x86_64.rpm
 
