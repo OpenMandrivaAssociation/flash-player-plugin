@@ -1,6 +1,6 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	11.2.202.644
+Version:	24.0.0.186
 # just update the version, run update.sh and commit
 Release:	1
 License:	Proprietary
@@ -137,35 +137,35 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 # Their sha256sums usually differ.
 
 %ifarch %ix86
-%define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.i386.rpm
+%define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-player-npapi-%{version}-release.i386.rpm
 # (Anssi) this was up faster (i.e. at the time of writing it was up but downurl1 was not), but does not stay up very long, same sha256 as url1:
-%define downurl2	http://fpdownload.macromedia.com/get/flashplayer/current/licensing/linux/flash-plugin-%{version}-release.i386.rpm
+%define downurl2	http://fpdownload.macromedia.com/get/flashplayer/current/licensing/linux/flash-player-npapi-%{version}-release.i386.rpm
 # can be temporarily disabled by %nilling if not yet available at the time of updating:
-%define downurl3	http://linuxdownload.adobe.com/linux/i386/flash-plugin-%{version}-release.i386.rpm
+%define downurl3	http://linuxdownload.adobe.com/linux/i386/flash-player-npapi-%{version}-release.i386.rpm
 %define downurl4	%nil
 
 # sha256sum:filesize
-%define tsha256sum1	03540d5423280c49c4a45160270c02530f9b52412294161fe1105432224688c2:6972708
-%define tsha256sum2	03540d5423280c49c4a45160270c02530f9b52412294161fe1105432224688c2:6972708
-%define tsha256sum3	c0af0242d9d712a97f635ed30c5d8bc0ceb1af25c705c6f9cbf434b8eea1798c:6972868
+%define tsha256sum1	a893f2cbcd9ce9de5ba9e07977b3acc7bb37f0a470eef80fba558da436da54ec:9133244
+%define tsha256sum2	a893f2cbcd9ce9de5ba9e07977b3acc7bb37f0a470eef80fba558da436da54ec:9133244
+%define tsha256sum3	059600330a9644b6cc5b58d91885d6416ebd473e0b226518d990fa785298fe20:9133404
 
-%define tarname		flash-plugin-%{version}-release.i386.rpm
+%define tarname		flash-player-npapi-%{version}-release.i386.rpm
 
 %define warn_on_missing_files 1
 %endif
 
 %ifarch x86_64
-%define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-plugin-%{version}-release.x86_64.rpm
-%define downurl2	http://fpdownload.macromedia.com/get/flashplayer/current/licensing/linux/flash-plugin-%{version}-release.x86_64.rpm
-%define downurl3	http://linuxdownload.adobe.com/linux/x86_64/flash-plugin-%{version}-release.x86_64.rpm
+%define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-player-npapi-%{version}-release.x86_64.rpm
+%define downurl2	http://fpdownload.macromedia.com/get/flashplayer/current/licensing/linux/flash-player-npapi-%{version}-release.x86_64.rpm
+%define downurl3	http://linuxdownload.adobe.com/linux/x86_64/flash-player-npapi-%{version}-release.x86_64.rpm
 %define downurl4	%nil
 
 
-%define tsha256sum1	4fd4aca26eeb9fa4f83c5925ada95f7bf35712d695e0397655453bc8afbf1663:7281012
-%define tsha256sum2	4fd4aca26eeb9fa4f83c5925ada95f7bf35712d695e0397655453bc8afbf1663:7281012
-%define tsha256sum3	3816fdf78025f9682013cffba7f9000a251b65c8ed3a89d68978134f9460d58d:7281172
+%define tsha256sum1	0074c7b33b3de0dea1aa2d729ebe890c53b049c648dc7179c4a0677db991b4f4:9675620
+%define tsha256sum2	0074c7b33b3de0dea1aa2d729ebe890c53b049c648dc7179c4a0677db991b4f4:9675620
+%define tsha256sum3	98d25c71d666e8584e3cc4b865f3529447d1deec5c7a461dcc92ce58f3069635:9675780
 
-%define tarname		flash-plugin-%{version}-release.x86_64.rpm
+%define tarname		flash-player-npapi-%{version}-release.x86_64.rpm
 
 %define warn_on_missing_files 1
 %endif
@@ -312,10 +312,10 @@ done
 FILE1_SRC="usr/%{_lib}/flash-plugin/libflashplayer.so"
 FILE1_DST="%{_libdir}/mozilla/plugins/libflashplayer.so"
 FILE1_PRM="0755"
-FILE2_SRC="usr/%{_lib}/flash-plugin/LICENSE"
+FILE2_SRC="usr/share/doc/flash-plugin-%{version}/license.pdf"
 FILE2_DST="%{_libdir}/mozilla/plugins/LICENSE.flashplayer"
 FILE2_PRM="0644"
-FILE3_SRC="usr/%{_lib}/flash-plugin/README"
+FILE3_SRC="usr/share/doc/flash-plugin-%{version}/readme.txt"
 FILE3_DST="%{_libdir}/mozilla/plugins/README.flashplayer"
 FILE3_PRM="0644"
 
