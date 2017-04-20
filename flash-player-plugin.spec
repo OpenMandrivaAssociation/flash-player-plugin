@@ -1,6 +1,6 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	25.0.0.127
+Version:	25.0.0.148
 # just update the version, run update.sh and commit
 Release:	1
 License:	Proprietary
@@ -145,9 +145,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 # sha256sum:filesize
-%define tsha256sum1	ede883b7f04f6d82778d4fff01d734bb1ef5b8b68333b8207d97e5896a0af680:8460232
+%define tsha256sum1	3b5925ee17697836f6db80abf17459daa32ca2cce252dc81ebdffa4286645c03:8461723
 %define tsha256sum2	:
-%define tsha256sum3	f2aff9ae01c2111146729f4fa4d1f8f6eb5e03ee5361c853d1eb48074f27299a:8460392
+%define tsha256sum3	01b1ec174568a3fafdef03d201a4cc885a9acebcd94128e3b8ebf0dcb0a7ebe7:8461899
 
 %define tarname		flash-player-npapi-%{version}-release.i386.rpm
 
@@ -161,9 +161,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 
-%define tsha256sum1	4d4bed9364a72db7f48c0f7dcfb2ce5e176276e5508f20e14923ae35eaeeea54:8972344
+%define tsha256sum1	3f694d661b49c7c52b4e9c2e71e9a7a312903dc010fd11aad3a01cecaf36a6bc:8973088
 %define tsha256sum2	:
-%define tsha256sum3	7381a08b18e9f3f7d3de3a626440eefa36e33d83222e6770e4744fb205b6fdbf:8972504
+%define tsha256sum3	bc5e8fcc9a930f6dbf91c788c72b539c40b4e7f94d30b368f175b89f748a600c:8973264
 
 %define tarname		flash-player-npapi-%{version}-release.x86_64.rpm
 
