@@ -3,7 +3,7 @@ version=`grep ^Version flash-player-plugin.spec | awk '{print $2}'`
 
 for urlandno in $(grep "^\%define downurl" flash-player-plugin.spec | grep -v \%nil | awk '{print substr($2,length($2),1) "|" $3}')
 do
-   
+
    IFS="|" read -a myarray <<< "$urlandno"
 
    url=${myarray[1]}
@@ -30,7 +30,7 @@ do
    if [ $occ -eq 1 ]; then
      sed -i "s/ tsha256sum${no}.*/ tsha256sum${no}\t$sum:$fsize/" flash-player-plugin.spec
    else
-     sed -i "0,/ tsha256sum${no}.*/! s/ tsha256sum${no}.*/ tsha256sum${no}\t$sum:$fsize/" flash-player-plugin.spec 
+     sed -i "0,/ tsha256sum${no}.*/! s/ tsha256sum${no}.*/ tsha256sum${no}\t$sum:$fsize/" flash-player-plugin.spec
    fi
    rm -f $file
 done
