@@ -1,6 +1,6 @@
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
-Version:	27.0.0.183
+Version:	27.0.0.187
 # just update the version, run update.sh and commit
 Release:	1
 License:	Proprietary
