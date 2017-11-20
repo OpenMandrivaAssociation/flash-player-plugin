@@ -2,7 +2,7 @@ Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
 Version:	27.0.0.187
 # just update the version, run update.sh and commit
-Release:	1
+Release:	2
 License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
 Source100:	%{name}.rpmlintrc
