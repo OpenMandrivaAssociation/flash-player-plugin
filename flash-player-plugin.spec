@@ -145,9 +145,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl4	%nil
 
 # sha256sum:filesize
-%define tsha256sum1	5ee99f194b545c45b09b534ef765c62fb625e81e18c9cbf89af69db56cc7118f:8486951
+%define tsha256sum1	a6100d668e9f373019c7dd7c821ed6e278f867db84164f58062ba715862856fb:8485684
 %define tsha256sum2	:
-%define tsha256sum3	cf539e3af97d4c9d7cc9b407ce97c0a36d26f05fe04ae3062e1f94c4cdbcdeb3:8487127
+%define tsha256sum3	2535d5d724952d63d0dc1bc30ab76f7402aa6c6d44febe3a5c23979ba4c93eec:8485860
 
 %define tarname		flash-player-npapi-%{version}-release.i386.rpm
 
@@ -160,9 +160,9 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define downurl3	http://linuxdownload.adobe.com/linux/x86_64/flash-player-npapi-%{version}-release.x86_64.rpm
 %define downurl4	%nil
 
-%define tsha256sum1	301d12ac486292026b20e07037f7d81faf9ede005201da7a715f4f55d8fc3882:9003051
+%define tsha256sum1	46f24961505dd402e3c63e45c4595355c0b06bd48dcbc46b8306c58aede960ed:9001609
 %define tsha256sum2	:
-%define tsha256sum3	824c40d0c274bdbf87a631a0b7257d121e3414c18739a90925999570b65cf848:9003227
+%define tsha256sum3	162f3666a5020be8a399945e107a9cb68649a4a7ee80a558bf85ea2031e4e692:9001785
 
 %define tarname		flash-player-npapi-%{version}-release.x86_64.rpm
 
