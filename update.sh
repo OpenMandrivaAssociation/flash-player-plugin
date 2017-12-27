@@ -1,3 +1,6 @@
+NEWVER=`curl -s https://fpdownload.macromedia.com/pub/flashplayer/masterversion/masterversion.xml| grep -m 1 "linux"|cut -d '"' -f 2|sed -e "s/,/./g"`
+
+sed -r -i "s/(Version:	)([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})/\1 $NEWVER/g" flash-player-plugin.spec
 
 version=`grep ^Version flash-player-plugin.spec | awk '{print $2}'`
 
