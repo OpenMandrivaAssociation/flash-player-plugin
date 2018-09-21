@@ -72,7 +72,6 @@ Conflicts:	libflashsupport < 0.20080000.1
 Obsoletes:	flash-player-plugin10.2 < 10.2.152
 Provides:	flash-player-plugin11 = %{version}
 Obsoletes:	flash-player-plugin11 < %{version}
-BuildRequires:	kde4-macros
 
 %description
 Adobe Flash Player plugin for browsers.
