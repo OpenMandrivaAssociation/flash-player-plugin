@@ -1,3 +1,10 @@
+%if %mdvver > 3000000
+%bcond_with kde
+%else
+%bcond_without kde
+%define x86_64 x86_64
+%endif
+
 Summary:	Flash Player plugin for browsers
 Name:		flash-player-plugin
 Version:	 31.0.0.108
@@ -7,7 +14,7 @@ License:	Proprietary
 URL:		http://www.adobe.com/products/flashplayer/
 Source100:	%{name}.rpmlintrc
 Group:		Networking/WWW
-ExclusiveArch:	%{ix86} x86_64
+ExclusiveArch:	%{ix86} %{x86_64}
 Requires(pre):	curl
 
 # helper for getting requires:
@@ -76,16 +83,18 @@ installation.
 
 Installing this package indicates acceptance of the Flash Player EULA,
 available at http://www.adobe.com/products/eulas/players/flash/
-%ifnarch x86_64
+%ifnarch %{x86_64}
 and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %endif
 
+%if %{with kde}
 # It would be preferable to have the KCM module in the main package with
 # simply not requiring any kde stuff. However, standard KDE installation
 # doesn't necessary include libkutils4. - Anssi 08/2011
 %package kde
 Summary:	Flash Player KDE settings module
 Group:		Networking/WWW
+BuildRequires:	kde4-macros
 Requires:	%{name} = %{version}-%{release}
 Requires(post):	%{name} = %{version}-%{release}
 # helper for getting requires:
@@ -122,8 +131,9 @@ during package installation.
 
 Installing this package indicates acceptance of the Flash Player EULA,
 available at http://www.adobe.com/products/eulas/players/flash/
-%ifnarch x86_64
+%ifnarch %{x86_64}
 and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
+%endif
 %endif
 
 %prep
@@ -154,7 +164,7 @@ and as %{_libdir}/mozilla/plugins/LICENSE.flashplayer.
 %define warn_on_missing_files 1
 %endif
 
-%ifarch x86_64
+%ifarch %{x86_64}
 %define downurl1	http://fpdownload.macromedia.com/get/flashplayer/pdc/%{version}/flash-player-npapi-%{version}-release.x86_64.rpm
 %define downurl2	http://fpdownload.macromedia.com/get/flashplayer/current/licensing/linux/flash-player-npapi-%{version}-release.x86_64.rpm
 %define downurl3	http://linuxdownload.adobe.com/linux/x86_64/flash-player-npapi-%{version}-release.x86_64.rpm
@@ -183,10 +193,12 @@ touch %{buildroot}%{_localstatedir}/lib/%{name}/%{tarname}
 install -d -m755 %{buildroot}%{_bindir}
 touch %{buildroot}%{_bindir}/flash-player-properties
 
+%if %{with kde}
 install -d -m755 %{buildroot}%{_kde_services}
 touch %{buildroot}%{_kde_services}/kcm_adobe_flash_player.desktop
 install -d -m755 %{buildroot}%{_kde_libdir}/kde4
 touch %{buildroot}%{_kde_libdir}/kde4/kcm_adobe_flash_player.so
+%endif
 
 install -d -m755 %{buildroot}%{_datadir}/applications
 touch %{buildroot}%{_datadir}/applications/flash-player-properties.desktop
@@ -352,6 +364,7 @@ sed -i 's,GNOME;,,' %{_datadir}/applications/flash-player-properties.desktop 2>/
 
 echo "Adobe Flash Player installation successful."
 
+%if %{with kde}
 %pre kde
 # When installing both main package and -kde, failure of %pre of main package
 # can prevent installation of it, but urpmi/rpm will try to install -kde
@@ -373,6 +386,8 @@ tar_extract
 
 sed -i 's,=personal,=network-and-connectivity,' %{_kde_services}/kcm_adobe_flash_player.desktop 2>/dev/null || :
 
+%endif
+
 %files
 %dir %{_localstatedir}/lib/%{name}
 %ghost %{_localstatedir}/lib/%{name}/%{tarname}
@@ -389,6 +404,9 @@ sed -i 's,=personal,=network-and-connectivity,' %{_kde_services}/kcm_adobe_flash
 %ghost %{_datadir}/applications/flash-player-properties.desktop
 %ghost %{_iconsdir}/hicolor/*/apps/flash-player-properties.png
 
+%if %{with kde}
 %files kde
 %ghost %{_kde_libdir}/kde4/kcm_adobe_flash_player.so
 %ghost %{_kde_services}/kcm_adobe_flash_player.desktop
+%endif
+
