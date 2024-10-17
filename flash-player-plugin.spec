@@ -11,7 +11,7 @@ Version:	 32.0.0.453
 # just update the version, run update.sh and commit
 Release:	1
 License:	Proprietary
-URL:		http://www.adobe.com/products/flashplayer/
+URL:		https://www.adobe.com/products/flashplayer/
 Source100:	%{name}.rpmlintrc
 Group:		Networking/WWW
 ExclusiveArch:	%{ix86} %{x86_64}
